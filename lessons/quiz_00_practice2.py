@@ -1,8 +1,5 @@
 """Quiz00 Practice"""
 
-from re import A
-
-
 a: str = "a" 
 b: str = "a" + "c"
 print (b + a)
