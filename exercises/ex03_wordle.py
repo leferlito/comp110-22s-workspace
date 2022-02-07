@@ -16,7 +16,6 @@ def contains_char(search_string: str, character: str) -> bool:
 # Assert is a built-in that helps us assert an assumption. In this case, it makes sure that the character being searched's length is only 1.
 
 
-secret: str = "codes"
 guess: str = "" 
 WHITE_BOX: str = "\U00002B1C"
 GREEN_BOX: str = "\U0001F7E9"
@@ -44,9 +43,9 @@ def emojified(guess: str, secret: str) -> str:
 
 def input_guess(a: int) -> str: 
     """Will prompt the player to keep guessing if the guess length is not the same as the secret."""
-    error_message: str = input(f"Enter a {a} char word: ")
-    while len(secret) != len(error_message):
-        error_message: str = input(f"That wasn't {a} chars! Try again: ")
+    error_message: str = input(f"Enter a {a} character word: ")
+    while a != len(error_message):
+        error_message = input(f"That wasn't {a} chars! Try again: ")
     return error_message
 
 
@@ -54,12 +53,13 @@ def main() -> None:
     """The main entrypoint of the program and main game loop."""
     turn: int = 1
     player_guess: str = ""
+    secret: str = "codes"
     while turn <= 6 and player_guess != secret:
         print(f"=== Turn {turn}/6 ===") 
         player_guess = input_guess(len(secret))
         print(emojified(player_guess, secret))
         if player_guess == secret: 
-            print(f"You won in {turn} turns! ")
+            print(f"You won in {turn}/6 turns! ")
         turn += 1
     if turn > 6: 
         print("X/6 - Sorry, try again tomorrow! ")
