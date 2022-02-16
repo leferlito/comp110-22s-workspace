@@ -1,30 +1,29 @@
-"""A beautiful underwater scene with bubbles, seaweed, and one orange fish. I attempted to place the seaweed and bubbles in randomized areas, so that every time you call the main function, it will be unique!"""
+"""A beautiful underwater scene with bubbles, seaweed, and one orange fish. The seaweed, fish, and bubbles in randomized areas, so every time the scene is unique!"""
 
 __author__ = "730483024"
 
-from turtle import Turtle, colormode, done
-# Why is there a colormode error? Do I need to do the numbers?
-# is all this hard coding bad?
-# do I have enough functions?
+from turtle import Turtle, done
 
 
 def main() -> None: 
     """The entrypoint of my scene."""
     t: Turtle = Turtle()
+    u: Turtle = Turtle()
     t.speed(0)
     t.hideturtle()
+    u.speed(0)
+    u.hideturtle()
     x: int = 0
     y: int = 0
     t.screen.bgcolor("blue")
     seaweed(t, x, y)
     bubbles_random(t, x, y)
-    # fish(t, x, y)
-    double(t, x, y)
+    double(t, u)
     done()
 
 
 def bubbles_random(t: Turtle, x: float, y: float) -> None:
-    "Draw bubbles that have random radii sizes and are located at x, y."
+    "Draw bubbles that have random radii sizes and are located in random spots on the scene."
     i: int = 0 
     while i < 30: 
         from random import randint
@@ -44,7 +43,7 @@ def bubbles_random(t: Turtle, x: float, y: float) -> None:
 
 
 def seaweed(t: Turtle, x: float, y: float) -> None: 
-    """Adding plant life to the bottom floor that vary in height."""
+    """Adding plant life to the bottom floor that vary in height and where they grow."""
     i: int = 0
     height: int = 60
     from random import randint
@@ -80,8 +79,8 @@ def fish(t: Turtle, x: float, y: float) -> None:
     t.circle(30)
     t.end_fill()
     t.penup()
-    t.setheading(0)
-    t.backward(30)
+    t.setheading(180)
+    t.forward(30)
     t.setheading(90.0)
     t.forward(30)
     t.pendown()
@@ -95,12 +94,15 @@ def fish(t: Turtle, x: float, y: float) -> None:
     t.end_fill()
 
 
-def double(t: Turtle, x: float, y: float):  # THIS IS PROBLEMATIC. Doesn't do exact copy
+def double(t: Turtle, u: Turtle):
     """A function to make two fish."""
     i: int = 0
     from random import randint
     while i < 2:
-        print(fish(t, randint(-300, 300), randint(-300, 300)))
+        if i == 0: 
+            fish(t, randint(-600, 300), randint(-200, 300))
+        else:
+            fish(u, randint(350, 650), randint(-200, 300))
         i += 1
 
 
