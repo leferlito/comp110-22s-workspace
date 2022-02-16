@@ -18,6 +18,7 @@ def main() -> None:
     t.screen.bgcolor("blue")
     seaweed(t, x, y)
     bubbles_random(t, x, y)
+    starfish(t, x, y)
     double(t, u)
     done()
 
@@ -67,6 +68,22 @@ def seaweed(t: Turtle, x: float, y: float) -> None:
         t.forward(70)
         t.left(180)
         i += 1
+
+
+def starfish(t: Turtle, x: float, y: float): 
+    """Adding a starfish to the seafloor."""
+    from random import randint
+    t.color("pink", "pink")
+    t.penup()
+    t.goto(randint(-550, 500), -370)
+    t.pendown()
+    t.begin_fill()
+    i: int = 0
+    while i < 5:
+        t.forward(100)
+        t.right(144)
+        i += 1  # fix to fill all
+    t.end_fill()
 
 
 def fish(t: Turtle, x: float, y: float) -> None: 
