@@ -24,7 +24,7 @@ def main() -> None:
 
 
 def bubbles_random(t: Turtle, x: float, y: float) -> None:
-    "Draw bubbles that have random radii sizes and are located in random spots on the scene."
+    """Draw bubbles that have random radii sizes and are located in random spots on the scene."""
     i: int = 0 
     while i < 30: 
         from random import randint
@@ -70,7 +70,7 @@ def seaweed(t: Turtle, x: float, y: float) -> None:
         i += 1
 
 
-def starfish(t: Turtle, x: float, y: float): 
+def starfish(t: Turtle, x: float, y: float) -> None:
     """Adding a starfish to the seafloor."""
     from random import randint
     t.color("pink", "pink")
@@ -111,7 +111,7 @@ def fish(t: Turtle, x: float, y: float) -> None:
     t.end_fill()
 
 
-def double(t: Turtle, u: Turtle):
+def double(t: Turtle, u: Turtle) -> None: 
     """A function to make two fish."""
     i: int = 0
     from random import randint
