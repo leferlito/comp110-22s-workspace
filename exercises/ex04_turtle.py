@@ -71,7 +71,7 @@ def seaweed(t: Turtle, x: float, y: float) -> None:
 
 
 def starfish(t: Turtle, x: float, y: float) -> None:
-    """Adding a starfish to the seafloor."""
+    """Adding one starfish to the seafloor."""
     from random import randint
     t.color("pink", "pink")
     t.penup()
