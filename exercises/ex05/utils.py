@@ -15,11 +15,12 @@ def only_evens(a_list: list[int]) -> list[int]:
 def sub(a_list: list[int], a: int, b: int) -> list[int]:
     """Return a list, which is subset of the given list, between the start (inclusive) and end index (non-inclusive)."""
     answer: list[int] = list()
-    # If the length of the list is 0, start > len of the list or end <= 0, return the empty list.
     if a < 0: 
         a = 0 
     if b > len(a_list) - 1: 
-        b = len(a_list) - 1
+        b = len(a_list)
+    if len(a_list) == 0 or a > len(a_list) or b <= 0: 
+        answer = []
     i: int = a
     while i < b:
         answer.append(a_list[i]) 
