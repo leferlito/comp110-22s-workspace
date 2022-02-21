@@ -6,7 +6,7 @@ __author__ = "730483024"
 from exercises.ex05.utils import only_evens, sub, concat
 
 
-def test_only_evens_endcase() -> None:
+def test_only_evens_edgecase() -> None:
     """Edge case test where if the given list is empty, the result is an empty list."""
     a_list: list[int] = []
     assert only_evens(a_list) == []
@@ -24,8 +24,8 @@ def test_only_evens_second() -> None:
     assert only_evens(a_list) == [4, 4, 4]
 
 
-def test_sub_endcase() -> None: 
-    """Test that the result is an empty list when the length of the list is 0, a > len of the list or b <= 0, return the empty list."""
+def test_sub_edgecase() -> None: 
+    """Edge case test that results is an empty list when the length of the list is 0, a > len of the list or b <= 0, return the empty list."""
     a_list: list[int] = []
     assert sub(a_list, -1, -2) == []
 
@@ -42,8 +42,8 @@ def test_sub_second() -> None:
     assert sub(a_list, -1, 8) == [25, 30, 35, 40, 45, 50, 55] 
 
 
-def test_concat_endcase() -> None: 
-    """End case test for concat function. Two empty lists concatinated should  result in an empty list."""
+def test_concat_edgecase() -> None: 
+    """Edge case test for concat function. Two empty lists concatinated should  result in an empty list."""
     a_list: list[int] = []
     b_list: list[int] = []
     assert concat(a_list, b_list) == []
