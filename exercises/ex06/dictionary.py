@@ -1,4 +1,4 @@
-"""Three dictionary functions: invert, favorite_color and count."""
+"""Three dictionary functions: invert, favorite_color, and count."""
 
 __author__ = "730483024"
 
@@ -7,22 +7,27 @@ def invert(a: dict[str, str]) -> dict[str, str]:
     """Inverts the key and values of the given dictionary."""
     result: dict[str, str] = {}
     for x in a:
-        result[a[x]] = x
-        if result[x] == a[x]: 
+        if a[x] in result: 
             raise KeyError("KeyError: Duplicate Keys") 
+        result[a[x]] = x
     return result
 
 
-def favorite_color(a: dict[str, str]) -> str: 
+def favorite_colors(a: dict[str, str]) -> str: 
     """Returns a string of which color appeared most frequently.""" 
-    # There is a tie, print which color came in the list first.
-    result: str = ""
+    result: dict[str, int] = {}
     for x in a: 
         if a[x] in result: 
-
+            result[a[x]] += 1
         else: 
-            a[x] = result[]
-    return result
+            result[a[x]] = 1
+    max: int = 0 
+    answer: str = ""
+    for key in result: 
+        if result[key] > max: 
+            max = result[key]
+            answer = key 
+    return answer
 
 
 def count(a: list[str]) -> dict[str, int]:
