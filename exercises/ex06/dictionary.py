@@ -31,7 +31,7 @@ def favorite_colors(a: dict[str, str]) -> str:
 
 
 def count(a: list[str]) -> dict[str, int]:
-    """Each key is a unique value in the given list and each value associated is the count of the number of times that value appeared in the input list."""
+    """Each key is a unique value in the given list and each value associated with the key is the count of the number of times it appeared in the given list."""
     result: dict[str, int] = {}
     i: int = 0
     while i < len(a): 
