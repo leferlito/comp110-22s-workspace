@@ -47,5 +47,8 @@ def test_count_edgecase() -> None:
     a_list: list[str] = []
     assert count(a_list) == {}
 
+
 def test_count_first() -> None: 
-    """"""
+    """Tests that the returned dictionary shows each original value from the given list as a key and its values is the number of times it was repeated."""
+    a_list: list[str] = ["Carly", "Carly", "Sam", "Sam"]
+    assert count(a_list) == {"Carly": 3, "Sam": 1}
