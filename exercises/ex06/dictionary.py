@@ -13,7 +13,7 @@ def invert(a: dict[str, str]) -> dict[str, str]:
     return result
 
 
-def favorite_colors(a: dict[str, str]) -> str: 
+def favorite_color(a: dict[str, str]) -> str: 
     """Returns a string of which color appeared most frequently.""" 
     result: dict[str, int] = {}
     for x in a: 

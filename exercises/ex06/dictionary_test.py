@@ -3,7 +3,7 @@
 __author__ = "730483024"
 
 
-from exercises.ex06.dictionary import invert, count, favorite_colors
+from exercises.ex06.dictionary import invert, count, favorite_color
 
 
 def test_invert_edgecase() -> None: 
@@ -27,19 +27,19 @@ def test_invert_second() -> None:
 def test_favorite_color_edgecase() -> None: 
     """Edge case test to see if a given empty dictionary results in a empty dictionary with the favorite_colors function."""
     a_dict: dict[str, str] = {}
-    assert favorite_colors(a_dict) == ""
+    assert favorite_color(a_dict) == ""
 
 
 def test_favorite_color_first() -> None: 
     """Test to see if the color that is most commonly the favorite (the value in the given dictionary) is returned in a string."""
     a_dict: dict[str, str] = {"Meghan": "blue", "Lauren": "pink", "Morgan": "pink"}
-    assert favorite_colors(a_dict) == "pink"
+    assert favorite_color(a_dict) == "pink"
 
 
 def test_favorite_color_second() -> None: 
     """Test to see if the color that is most commonly the favorite (the value in the given dictionary) is returned in a string."""
     a_dict: dict[str, str] = {"Mark": "yellow", "Ezri": "blue", "Kris": "blue"}
-    assert favorite_colors(a_dict) == "blue"
+    assert favorite_color(a_dict) == "blue"
 
 
 def test_count_edgecase() -> None: 
