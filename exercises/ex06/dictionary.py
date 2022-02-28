@@ -39,4 +39,5 @@ def count(a: list[str]) -> dict[str, int]:
             result[a[i]] += 1
         else: 
             result[a[i]] = 1
+        i += 1
     return result
