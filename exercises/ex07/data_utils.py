@@ -40,12 +40,13 @@ def head(table: dict[str, list[str]], n: int) -> dict[str, list[str]]:
     for item in table: 
         store_n_values: list[str] = []
         i: int = 0 
-        if n >= len(table): 
-            result = table  # Why is this not getting picked up ny auto grader?
-        while i < n: 
-            store_n_values.append(table[item][i])
-            i += 1
-        result[item] = store_n_values    
+        if n >= len(table[item]): 
+            result[item] = table[item]  
+        else:
+            while i < n: 
+                store_n_values.append(table[item][i])
+                i += 1
+            result[item] = store_n_values    
     return result
 
 
