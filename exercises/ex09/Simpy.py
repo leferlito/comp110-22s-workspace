@@ -18,42 +18,69 @@ class Simpy:
 
     def __str__(self) -> str: 
         """Convert Simpy object into a str representation."""
-        return f"{self.values}"
-        # Not printing ones
+        return f"Simpy({self.values})"
 
-    def __fill__(self, float_value: float, number_of_values: int) -> None: 
+    def fill(self, float_value: float, number_of_values: int) -> None: 
         """..."""
-        i: float = 0.0
-        while i <= number_of_values: 
+        i: int = 0
+        while i < number_of_values: 
             self.values.append(float_value)
-            i += 1.0
+            i += 1
+        # problems, all are adding together in the same self object. will not reset.
 
-    def __arrange__(self, start: float, stop: float, step: float) -> None: 
+    def arange(self, start: float, stop: float, step: float = 1.0) -> None: 
         """..."""
         assert step != 0.0
         i: float = start
-        self.values.append(start)
-        while i <= stop: 
-            i += step
-            self.values.append(i)
+        if start < stop: 
+            while i < stop: 
+                self.values.append(i)
+                i += step
+        # problems here with neg numbers. 
+        # are my if and while conditons redundant?
+        # when I use a for-in loop, I get an empty list at least
+        else: 
+            while i > stop: 
+                self.values.append(i)
+                i -= step
 
-    # def __sum__(self, rhs: float) -> float: 
-    #     total: float
-    #     total = self + rhs
-    #     return total
+    # problems again adding onto self object. How do I reset?
 
-    def __add__(self, lhs: Union[float, Simpy]) -> Simpy: 
+    def sum(self) -> float: 
+        """..."""
+        total: float = 0.0
+        i: int = 0
+        while i <= len(self.values): 
+            total += self.values[i]
+            i += 1
+        for number in range(self.values): # for the sum 1-10 one...
+        return total
+    # problems
+
+    def __add__(self, rhs: Union[float, Simpy]) -> Simpy: 
         """Vectorized concatination operator."""
         result: list[str] = []
-
-        if isinstance(lhs, float): 
+        if isinstance(rhs, float): 
             for item in self.values:
-                result.append(lhs + item)
-        
+                result.append(item + rhs)
         else: 
-            assert len(self.values) == len(lhs.values)
+            assert len(self) == len(rhs.values)
             for i in range(0, len(self.values)): 
-                result.append(self.values[i] + lhs.values[i])
+                result.append(self.values[i] + rhs.values[i])
+
+        return Simpy(result) 
+    # why does self.values not work?
+
+    def __pow__(self, rhs: Union[float, Simpy) -> Simpy: 
+        """..."""
+        result: list[str] = []
+        if isinstance(rhs, float): 
+            for item in self.values:
+                result.append(item ** rhs)
+        else: 
+            assert len(self) == len(rhs.values)
+            for i in range(0, len(self.values)): 
+                result.append(self.values[i] ** rhs.values[i])
 
         return Simpy(result) 
 
