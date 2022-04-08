@@ -117,19 +117,9 @@ class Simpy:
                     mask.append(False)
                 i += 1
         return mask
-    
-    # def __getitem__(self, rhs: int) -> float: 
-    #     """Overload the subscription notation operator for class Simpy."""
-    #     index_value: float = 0.0
-    #     i: int = rhs
-    #     if i < len(self.values):
-    #         index_value = self.values[i]
-    #     else: 
-    #         raise IndexError
-    #     return index_value
 
     def __getitem__(self, rhs: Union[int, list[bool]]) -> Union[float, Simpy]:
-        """..."""
+        """Overload the subscription notation for Simpy objects with an int or mask (list[bool] to filter data."""
         if isinstance(rhs, int): 
             index_value: float = 0.0
             i: int = rhs
@@ -137,13 +127,12 @@ class Simpy:
                 index_value = self.values[i]
             else: 
                 raise IndexError
-            return index_value   
-        # problems after here     
+            return index_value      
         else:
-            mask: Union[float, Simpy]
-            for item in self. values: 
-                if rhs: 
-                    mask[item] = True
-                else: 
-                    mask[item] = False
-            return mask
+            result: list[float] = []
+            i: int = 0
+            for item in rhs: 
+                if item: 
+                    result.append(self.values[i])
+                i += 1
+            return Simpy(result)
