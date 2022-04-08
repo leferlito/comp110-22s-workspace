@@ -6,6 +6,7 @@ class StrArray:
     items: list[str]
 
     def __init__(self, items: list[str]): 
+        """"""
         self.items = items 
     
     def __repr__(self) -> str: 
