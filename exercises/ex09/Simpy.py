@@ -119,7 +119,7 @@ class Simpy:
         return mask
 
     def __getitem__(self, rhs: Union[int, list[bool]]) -> Union[float, Simpy]:
-        """Overload the subscription notation for Simpy objects with an int or mask (list[bool] to filter data."""
+        """Overload the subscription notation for Simpy objects with an int or mask (list[bool]) to filter data."""
         if isinstance(rhs, int): 
             index_value: float = 0.0
             i: int = rhs
