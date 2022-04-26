@@ -40,3 +40,12 @@ def last(head: Optional[Node]) -> int:
         raise ValueError("last cannot be called with None")
     else:
         return None
+
+
+def value_at(head: Optional[Node], index: int) -> int: 
+    """Return the data of the Node stored at the given index, or raise an IndexError if the index does not exist."""
+    if head is None: 
+        raise IndexError("Index is out of bounds of the list.")
+    else: 
+        return 
+        
